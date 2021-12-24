@@ -1,10 +1,10 @@
-def dfs(gragh, v, visited):
+def dfs(graph, v, visited):
     visited[v] = True
     print(v, end=' ')
 
-    for i in gragh[v]:
+    for i in graph[v]:
         if not visited[i]:
-            dfs(gragh, i, visited)
+            dfs(graph, i, visited)
 
 
 graph = [
