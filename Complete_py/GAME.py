@@ -10,13 +10,15 @@ for i in range(n):
     array.append(list(map(int, input().split())))
 
 dx = [-1, 0, 1, 0]
-dy  = [0, 1, 0 , -1]
+dy = [0, 1, 0, -1]
+
 
 def turnLeft():
     global direction
     direction -= 1
     if direction == -1:
         direction = 3
+
 
 count = 1
 turn_time = 0
@@ -30,7 +32,7 @@ while True:
         d[nx][ny] = 1
         x = nx
         y = ny
-        count += 1 
+        count += 1
         turn_time = 0
         continue
     else:
@@ -43,7 +45,7 @@ while True:
         if array[nx][ny] == 0:
             x = nx
             y = ny
-        else :
+        else:
             break
         turn_time = 0
 
