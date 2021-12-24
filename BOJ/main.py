@@ -1,68 +1,25 @@
-def merge(A, p, q, r):
-    i = p
-    j = q + 1
-    k = p
-    tmp = [0 for i in range(r+1)]
+# 입력 받기
+n = int(input())
+x, y = 1, 1
+plans = input().split()
 
-    while i <= q and j <= r:
-        if A[i] <= A[j]:
-            tmp[k] = A[i]
-            k += 1
-            i += 1
+# L, R, U, D 에 따른 이동
+dx = [0,0,-1,1]
+dy = [-1,1,0,0]
+move_type = ['L', 'R', 'U', 'D']
 
-        else :
-            tmp[k] = A[j]
-            j += 1
-            k += 1
-        
-    while i <= q :
-        tmp[k] = A[i]
-        k += 1
-        i += 1
+#이동 계획 확인
+for plan in plans:
+    for i in range(len(move_type)):
+        if plan == move_type[i]:
+            nx = x + dx[i]
+            ny = y + dy[i]
 
-    while j <= r :
-        tmp[k] = A[j]
-        j += 1
-        k += 1
+    # 공간을 벗어나는 경우 무시
+    if nx <1 or ny <1 or nx > n or ny > n:
+        continue
 
-    for a in range(p,r+1):
-        A[a] = tmp[a]
+    # 이동 수행
+    x, y = nx, ny
 
-
-def mergeSort(A, p, r):
-    if p < r:
-        q = int((p + r)/2)
-        mergeSort(A, p, q)
-        mergeSort(A, q + 1, r)
-        merge(A, p, q, r)
-
-
-def init(C, D):
-    return C+D
-
-
-def goodResult(A,p,r):
-    print("합친 배열 \t\t", A)
-    mergeSort(A, p, r)
-    print("정상적인 출력 \t ", A)
-    print()
-
-
-def badResult(A,p,r):
-    print("합친 배열 \t\t", A)
-    mergeSort(A, p, r)
-    print("finished mergesort : ", A)
-    print()
-
-
-def main():
-    C = list(map(int, input().split()))
-    print("C : \t" , C)
-    D = list(map(int, input().split()))
-    print("D : \t", D)
-    print()
-
-    A = init(C, D)
-    badResult(A,11,2)
-
-main()
+print(x,y)
