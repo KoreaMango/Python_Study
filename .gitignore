@@ -1,4 +1,9 @@
+# input, output file 제거
 *.txt
 *.vscode
+
+# 필요없는 파일 제거
 *.DS_Store
+
+# 코드 작업 공간 제거
 main.py
