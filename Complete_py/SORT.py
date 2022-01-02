@@ -56,3 +56,14 @@ def quick_sort_py(array):
     right_side = [x for x in tail if x > pivot]
 
     return quick_sort_py(left_side) + [pivot] + quick_sort_py(right_side)
+
+
+# 계수 정렬
+count = [0] * (max(array)+1)
+
+for i in range(len(array)):
+    count[array[i]] += 1
+
+for i in range(len(count)):
+    for j in range(count[i]):
+        print(i, end=' ')
