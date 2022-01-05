@@ -1,6 +1,7 @@
 d = [0] * 100
 
 
+# 재귀 방식 or 탑다운 방식
 def fibo(x):
     if x == 1 or x == 2:
         return 1
@@ -9,5 +10,16 @@ def fibo(x):
     d[x] = fibo(x - 1) + fibo(x-2)
     return d[x]
 
+# 반복문 방식 or 바텀 업 방식
+def pibo():
+    d[1] = 1
+    d[2] = 1
+    n = 99
+    for i in range(3, n+1):
+        d[i] = d[i-1] + d[i-2]
+    
+    return d[n]
 
+print(pibo())
 print(fibo(99))
+
