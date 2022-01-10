@@ -22,13 +22,13 @@ def bfs(graph, start, visited):
 
 N, M, V = map(int, input().split())  # 입력 받기
 
-arr = [[]]  # 0번 인덱스를 제외하고 선언
+arr = [[]]  # 0번 인덱스를 제외하고 선언, 간선이 연결하는 두 정점 번호 받기
 
 for i in range(M):  # 간선의 개수 M
     arr.append(list(map(int, input().split())))  # 리스트 배열 넣기
 
 
-graph = [[]]  # 0번 인덱스를 제외하고 선언
+graph = [[]]  # 0번 인덱스를 제외하고 선언, 인덱스가 정점의 번호이고 간선이 연결된 정점들을 넣는 배열
 for i in range(N):  # 정점 개수 만큼 그래프 선언
     graph.append(list())
 
