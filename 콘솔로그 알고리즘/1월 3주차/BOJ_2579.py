@@ -20,7 +20,7 @@ if n >= 2:
     dp[2] = sta[1] + sta[2]
 
 for i in range(3, n+1):
-    # 현재 계단 + 전전 단계 계단 합,     전전전 계단 합 + 현재계단 + 전계단
+    #  전전 단계 계단 합 + 현재 계단,     전전전 계단 합 + 전계단 + 현재계단
     dp[i] = max(dp[i-2] + sta[i], dp[i-3] + sta[i-1] + sta[i])
 
 print(dp[n])
